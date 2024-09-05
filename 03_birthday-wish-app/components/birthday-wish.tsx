@@ -181,7 +181,7 @@ export default function BirthdayWish(){
                 width={windowSize.width}
                 height={windowSize.height}
                 recycle={false}
-                numberOfPieces={900}
+                numberOfPieces={1000}
                 colors={confettiColors}
                 />
              )}
