@@ -12,7 +12,7 @@ interface NumberGuessingState {
     attempts: number;
 }
 
-export default function NumberGuessing() {
+export default function NumberGuessing(): JSX.Element {
     const [gameStarted, setGameStarted] = useState<boolean>(false);
     const [gameOver, setGameOver] = useState<boolean>(false);
     const [paused, setPaused] = useState<boolean>(false);
