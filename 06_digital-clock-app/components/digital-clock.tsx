@@ -16,8 +16,55 @@ export default function DigitalClockComponent() {
         }, 1000);
         return () => clearInterval(interval); //cleanup the interval on component unmount
     }, [])
+
+    const formattedTime = useMemo<string>(()=>{
+        if (!mounted) return ""; // dont render time on the server
+
+        const hours = is24Hour ? time.getHours().toString().padStart(2, '0') 
+        : (time.getHours() % 12 || 12).toString().padStart(2, '0');
+
+        const minutes = time.getMinutes().toString().padStart(2, '0');
+
+        const seconds = time.getSeconds().toString().padStart(2, '0');
+
+        return `${hours}:${minutes}:${seconds}`;
+    }, [time, is24Hour, mounted]); //dependencies to re-run the memoized function
     
     return (
-        <div></div>
+        <div className="flex items-center justify-center h-screen">
+            <Card className="p-8 shadow-2xl rounded-2xl">
+                <div className="flex flex-col items-center justify-center">
+                {/* Header with title */}
+                    <div className="text-2xl font-bold tracking-tight">
+                        Digital Clock
+                    </div>
+                    {/* Description */}
+                    <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Display current time in hours, minutes, and seconds
+                    </div>
+                    {/* Display the formatted time */}
+                    <div className="text-6xl font-bold tracking-tight">
+                        {formattedTime}
+                    </div>
+                    {/* Buttons to switch between 24-hour and 12-hour formats */}
+                    <div className="mt-4 flex items-center">
+                        <Button
+                            variant={is24Hour ? 'default' : 'outline'}
+                            onClick={() => setIs24Hour(true)}
+                            className="mr-2 font-bold"
+                        >
+                            24-Hour Format
+                        </Button>
+                        <Button
+                            variant={!is24Hour ? 'default' : 'outline'}
+                            onClick={() => setIs24Hour(false)}
+                            className="mr-2 font-bold"
+                        >
+                            12-Hour Format
+                        </Button>
+                    </div>
+                </div>
+            </Card>
+        </div>
     );
 };
