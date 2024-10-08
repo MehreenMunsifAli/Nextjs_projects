@@ -56,9 +56,9 @@ export default function ColorPickerComponent() {
                     {/* Input field to pick a color */}
                     <Input 
                         type="color"
+                        className="w-full h-16 p-0 border-0 rounded-md cursor-pointer"
                         value={color}
                         onChange={handleColorChange}
-                        className="w-full h-16 p-0 border-0 rounded-md cursor-pointer"
                     />
                 </div>  
             </Card>
