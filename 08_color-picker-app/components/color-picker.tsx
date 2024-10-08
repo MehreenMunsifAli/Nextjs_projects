@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, ChangeEvent } from "react";
-import { Card, CardTitle, CardDescription } from "./ui/card";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Card, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function ColorPickerComponent() {
     const [color, setColor] = useState<string>("#000000");
@@ -37,12 +37,13 @@ export default function ColorPickerComponent() {
                     {/* Display the color value in hex and RGB format, and button to copy */}
                     <div className="grid gap-2 text-center">
                         <div className="text-2xl font-semibold">
-                            {color}
+                            HEX: {color}
                         </div>
                         <div className="text-gray-500 dark:text-gray-400">
-                            RGB: {parseInt(color.slice(1,3), 16)},{" "}
+                            RGB: {parseInt(color.slice(1,3), 16)},{" "} 
                             {parseInt(color.slice(3,5), 16)},{" "}
                             {parseInt(color.slice(5,7), 16)}
+                            {/* ,16 to convert hex to decimal */}
                         </div>
                         <Button
                             onClick={copyToClipboard}
