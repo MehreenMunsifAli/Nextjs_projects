@@ -66,8 +66,7 @@ export default function TipCalculatorComponent() {
                             placeholder="Enter Tip Percentage"
                             value={tipPercentage !== null ? tipPercentage : ""}
                             onChange={handleTipPercentageChange}
-                        >
-                        </Input>
+                        />
                     </div>
                     <Button onClick={calculateTip}>Calculate Tip</Button>
                 </CardContent>
