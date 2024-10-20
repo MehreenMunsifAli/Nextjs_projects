@@ -72,9 +72,13 @@ export default function TipCalculatorComponent() {
                     <Button onClick={calculateTip}>Calculate Tip</Button>
                 </CardContent>
                 <CardFooter className="grid gap=2">
-                    <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between text-sm text-blue-600 mb-2">
+                        <span>Tip Amount:</span>
+                        <span className="font-bold">Rs.{tipAmount.toFixed(2)}</span>
+                    </div>
+                    <div className="flex items-center justify-between ">
                         <span>Total Amount:</span>
-                        <span className="font-bold">${totalAmount.toFixed(2)}</span>
+                        <span className="font-bold">Rs.{totalAmount.toFixed(2)}</span>
                     </div>
                 </CardFooter>
             </Card>
