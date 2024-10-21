@@ -89,7 +89,7 @@ export default function BMICalculatorComponent() {
                         />
                     </div>
                     <div className="grid gap-2">
-                        <Label htmlFor="weight">Wight (kg)</Label>
+                        <Label htmlFor="weight">Weight (kg)</Label>
                         <Input 
                             id="weight"
                             type="number"
