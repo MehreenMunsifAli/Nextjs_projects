@@ -8,8 +8,7 @@ import { Card,
     CardTitle,
     CardDescription,
     CardContent
- } from "./ui/card";
-import { Divide } from "lucide-react";
+} from "./ui/card";
 
 //interface for the BMI result
 interface BmiResult {
@@ -72,7 +71,7 @@ export default function BMICalculatorComponent() {
     }
 
     return (
-        <div className="flex items-center justify-content min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
             <Card className="w-full max-w-md mx-auto">
                 <CardHeader>
                     <CardTitle>BMI Calculator</CardTitle>
